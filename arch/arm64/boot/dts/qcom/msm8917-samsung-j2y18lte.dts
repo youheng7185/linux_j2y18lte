@@ -207,16 +207,6 @@
 			function = LED_FUNCTION_TORCH;
 		};
 	};
-
-
-};
-
-&apps_iommu {
-    status = "disabled";
-};
-
-&gpu_iommu {
-    status = "disabled";
 };
 
 &tlmm {
@@ -344,47 +334,6 @@
     clock-frequency = <32768>;
 };
 
-&gpu {
-	status = "disabled";
-};
-
-&venus {
-	status = "disabled";
-};
-
-&venus_mem {
-	status = "disabled";
-};
-
-&bam_dmux {
-    status = "disabled";
-};
-
-&bam_dmux_dma {
-    status = "disabled";
-};
-
-&wcnss_mem {
-	status = "disabled";
-};
-
-&wcnss {
-	vddpx-supply = <&pm8937_l5>;
-
-	status = "disabled";
-};
-
-&camss {
-	status = "disabled";
-};
-
-&modem {
-    status = "disabled";
-};
-
-&adsp {
-    status = "disabled";
-};
 
 &wcnss_iris {
 	compatible = "qcom,wcn3620";
