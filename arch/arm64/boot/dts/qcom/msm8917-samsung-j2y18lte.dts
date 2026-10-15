@@ -43,7 +43,7 @@
 
 		framebuffer0: framebuffer@A8000000 {
 			compatible = "simple-framebuffer";
-			reg = <0x0 0xA800035A 0x0 0x300000>; /* > 540*960*3 = 1.5M  */
+			reg = <0x0 0xA8000358 0x0 0x300000>; /* > 540*960*3 = 1.5M  */
 			width = <540>;
 			height = <960>;
 			stride = <(540 * 3)>;
