@@ -289,11 +289,12 @@
 	status = "okay";
 
 	touchscreen@50 {
-		compatible = "imagis,ist3038c";	/* closest mainline match, see notes */
+		compatible = "imagis,ist3038h";
 		reg = <0x50>;
 		interrupt-parent = <&tlmm>;
 		interrupts = <65 IRQ_TYPE_EDGE_FALLING>;
 		vdd-supply = <&tsp_vdd>;
+		vddio-supply = <&tsp_vdd>;
 		touchscreen-size-x = <540>;
 		touchscreen-size-y = <960>;
 		pinctrl-names = "default";
@@ -402,9 +403,9 @@
 };
 */
 
-/* internal emmc */
+/* internal emmc, disabled first*/
 &sdhc_1 {
-    status = "okay";
+    status = "disabled";
     pinctrl-names = "default", "sleep";
     pinctrl-0 = <&sdc1_default>;
     pinctrl-1 = <&sdc1_sleep>;
@@ -553,22 +554,6 @@
 			regulator-max-microvolt = <1200000>;
 		};
 	};
-};
-
-&usb {
-	dr_mode = "peripheral";
-	extcon = <&usb_vbus>;
-	interrupts = <GIC_SPI 134 IRQ_TYPE_LEVEL_HIGH>,
-			<GIC_SPI 136 IRQ_TYPE_LEVEL_HIGH>,
-			<GIC_SPI 140 IRQ_TYPE_LEVEL_HIGH>;
-	status = "okay";
-};
-
-&usb_hs_phy {
-	vdd-supply = <&pm8937_l2>;
-	vdda1p8-supply = <&pm8937_l7>;
-	vdda3p3-supply = <&pm8937_l13>;
-	status = "okay";
 };
 
 &wcd_codec {
