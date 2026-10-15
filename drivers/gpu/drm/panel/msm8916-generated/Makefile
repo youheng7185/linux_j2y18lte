@@ -22,6 +22,7 @@ obj-$(CONFIG_DRM_PANEL_MOTOROLA_HARPIA_TIANMA) += panel-motorola-harpia-tianma.o
 obj-$(CONFIG_DRM_PANEL_MOTOROLA_OSPREY_INX) += panel-motorola-osprey-inx.o
 obj-$(CONFIG_DRM_PANEL_MOTOROLA_SURNIA_BOE) += panel-motorola-surnia-boe.o
 obj-$(CONFIG_DRM_PANEL_MOTOROLA_SURNIA_INX) += panel-motorola-surnia-inx.o
+obj-$(CONFIG_DRM_PANEL_SAMSUNG_EA8061S_AMS498QV01) += panel-samsung-ea8061s-ams498qv01.o
 obj-$(CONFIG_DRM_PANEL_SAMSUNG_EA8061_AMS549BU19_ID400418) += panel-samsung-ea8061-ams549bu19-id400418.o
 obj-$(CONFIG_DRM_PANEL_SAMSUNG_EA8061_AMS549BU19) += panel-samsung-ea8061-ams549bu19.o
 obj-$(CONFIG_DRM_PANEL_SAMSUNG_EA8061V_AMS497EE01) += panel-samsung-ea8061v-ams497ee01.o
