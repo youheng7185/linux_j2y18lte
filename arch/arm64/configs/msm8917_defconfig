@@ -171,3 +171,8 @@ CONFIG_USB_CONFIGFS_ACM=y
 # ---- Out-of-tree / device-specific (dropped silently if absent) ----
 CONFIG_MFD_SM5703=y
 CONFIG_REGULATOR_SM5703=y
+
+CONFIG_SHMEM=y
+CONFIG_MEMFD_CREATE=y
+CONFIG_TMPFS=y
+CONFIG_TMPFS_POSIX_ACL=y
