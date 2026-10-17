@@ -87,11 +87,6 @@
 			no-map;
 		};
 
-		wcnss-fw@8da00000 {
-			reg = <0x0 0x8da00000 0x0 0x00700000>;
-			no-map;
-		};
-
 		venus-fw@8fc00000 {
 			reg = <0x0 0x8fc00000 0x0 0x00400000>;
 			no-map;
@@ -334,6 +329,23 @@
     clock-frequency = <32768>;
 };
 
+
+&wcnss {
+	status = "okay";
+	firmware-name = "wcnss.mdt";
+};
+
+&wcnss_ctrl {
+	firmware-name = "wlan/prima/WCNSS_qcom_wlan_nv.bin";
+};
+
+&wcnss_mem {
+	status = "okay";
+	reg = <0x0 0x8da00000 0x0 0x00700000>;
+	/delete-property/ size;
+	/delete-property/ alignment;
+	/delete-property/ alloc-ranges;
+};
 
 &wcnss_iris {
 	compatible = "qcom,wcn3620";
