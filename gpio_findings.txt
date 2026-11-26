@@ -1,0 +1,46 @@
+GPIO INVESTIGATION RESULTS - Samsung J2 Pro 2018 (SM-J250F / j2y18lte)
+========================================================================
+
+DTS: arch/arm64/boot/dts/qcom/msm8917-samsung-j2y18lte.dts
+Driver: drivers/gpu/drm/panel/msm8916-generated/panel-samsung-ea8061s-ams498qv01.c
+
+---
+
+1. LCD ENABLE GPIO (enable_gpio)
+--------------------------------
+GPIO Number:     TLMM 64
+Active Polarity: HIGH (GPIO_ACTIVE_HIGH)
+Source:          Driver comment line 58: "GPIO64 is the downstream fixed_reg_gpio64 LCD enable"
+Driver Code:     devm_gpiod_get(dev, "enable", GPIOD_OUT_HIGH)
+
+Missing DTS property:
+  enable-gpios = <&tlmm 64 GPIO_ACTIVE_HIGH>;
+
+---
+
+2. PANEL RESET GPIO (reset_gpio)
+--------------------------------
+GPIO Number:     TLMM 25 (INFERRED - not explicitly confirmed)
+Active Polarity: LOW (GPIO_ACTIVE_LOW)
+Source:          Driver requests: devm_gpiod_get(dev, "reset", GPIOD_OUT_LOW)
+                 Driver comment: "Downstream panelrst_disable drives physical reset low"
+                 Platform pattern: All Samsung MSM8916/8917 devices use GPIO 25 for panel reset
+
+Missing DTS property:
+  reset-gpios = <&tlmm 25 GPIO_ACTIVE_LOW>;
+
+Evidence from platform:
+  msm8916-samsung-fortuna-common.dtsi: reset-gpios = <&tlmm 25 GPIO_ACTIVE_LOW>;
+  msm8916-samsung-j5-common.dtsi:    reset-gpios = <&tlmm 25 GPIO_ACTIVE_LOW>;
+  msm8916-samsung-serranove.dts:     reset-gpios = <&tlmm 25 GPIO_ACTIVE_LOW>;
+  msm8916-samsung-a5u-eur.dts:       reset-gpios = <&tlmm 25 GPIO_ACTIVE_LOW>;
+  msm8916-samsung-e2015-common.dtsi: reset-gpios = <&tlmm 25 GPIO_ACTIVE_LOW>;
+
+---
+
+CONCLUSION
+----------
+LCD Enable (GPIO 64): CONFIRMED via driver comment
+Panel Reset (GPIO 25): STRONG INFERENCE from platform pattern, NOT explicitly confirmed
+
+Original downstream Samsung kernel source for SM-J250F needed for 100% certainty on reset GPIO.

@@ -533,6 +533,12 @@
 };
 
 &gpu {
+	assigned-clocks = <&gcc GFX3D_CLK_SRC>, <&gcc GCC_BIMC_GPU_CLK>;
+	assigned-clock-rates = <484800000>, <400000000>;
+
+
+
+
 	status = "okay";
 };
 
